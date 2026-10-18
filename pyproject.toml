@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "codesage"
+version = "1.0.0"
+description = "Local AI Code Reviewer powered by Ollama open-weight models"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "CodeSage Contributors" }]
+keywords = ["ai", "code-review", "ollama", "cli", "open-source", "hacktoberfest"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "typer[all]>=0.12.5",
+    "rich>=13.9.4",
+    "httpx>=0.27.2",
+    "python-dotenv>=1.0.1",
+    "pygments>=2.18.0",
+    "pyyaml>=6.0.2",
+    "tqdm>=4.66.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/code-sage"
+Repository = "https://github.com/YOUR_USERNAME/code-sage"
+Issues = "https://github.com/YOUR_USERNAME/code-sage/issues"
+
+[project.scripts]
+codesage = "codesage.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codesage*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["codesage"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
