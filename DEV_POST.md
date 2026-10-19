@@ -1,10 +1,7 @@
 ---
 title: "I Built a Local AI Code Reviewer That Never Sends Your Code to the Cloud 🧙"
-published: false
-description: "CodeSage: a fully offline, open-weight AI code review CLI built with Ollama, Gemma 3, and Python — created for the Hacktoberfest DEV Challenge."
-tags: hf26challenge, ai, opensource, hacktoberfest
-cover_image: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200
-canonical_url: null
+published: true
+canonical_url: https://dev.to/himank_kaushik_0753a0366e/i-built-a-local-ai-code-reviewer-that-never-sends-your-code-to-the-cloud-5ejm
 ---
 
 # I Built a Local AI Code Reviewer That Never Sends Your Code to the Cloud 🧙
