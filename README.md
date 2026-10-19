@@ -7,7 +7,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Ollama](https://img.shields.io/badge/Powered%20by-Ollama-orange)](https://ollama.com)
-[![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2024-blueviolet)](https://hacktoberfest.com)
+[![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2026-blueviolet)](https://hacktoberfest.com)
 
 ---
 
@@ -90,7 +90,7 @@ code-sage/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/code-sage.git
+git clone https://github.com/himankk/code-sage.git
 cd code-sage
 
 # 2. Run the setup script (creates venv, installs deps, pulls gemma3)
@@ -112,7 +112,7 @@ codesage review codesage/reviewer.py
 
 ```bash
 # 1. Clone and enter the project
-git clone https://github.com/YOUR_USERNAME/code-sage.git
+git clone https://github.com/himankk/code-sage.git
 cd code-sage
 
 # 2. Create and activate a virtual environment
@@ -263,7 +263,7 @@ pytest tests/test_reviewer.py -v
 
 ## 🤝 Contributing
 
-Contributions are warmly welcomed! This project is part of **Hacktoberfest 2024**.
+Contributions are warmly welcomed! This project is part of **Hacktoberfest 2026**.
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feat/your-feature`
@@ -301,4 +301,4 @@ MIT — see [LICENSE](LICENSE).
 
 ## 🌟 Star this repo if CodeSage saved you time!
 
-Made with ❤️ for Hacktoberfest 2024 — open-source AI that stays on your machine.
+Made with ❤️ for Hacktoberfest 2026 — open-source AI that stays on your machine.

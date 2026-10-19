@@ -33,9 +33,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/code-sage"
-Repository = "https://github.com/YOUR_USERNAME/code-sage"
-Issues = "https://github.com/YOUR_USERNAME/code-sage/issues"
+Homepage = "https://github.com/himankk/code-sage"
+Repository = "https://github.com/himankk/code-sage"
+Issues = "https://github.com/himankk/code-sage/issues"
 
 [project.scripts]
 codesage = "codesage.cli:app"
