@@ -8,6 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Ollama](https://img.shields.io/badge/Powered%20by-Ollama-orange)](https://ollama.com)
 [![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-2026-blueviolet)](https://hacktoberfest.com)
+[![DEV.to Post](https://img.shields.io/badge/DEV.to-Challenge%20Submission-0a0a0a?logo=devdotto)](https://dev.to/himank_kaushik_0753a0366e/i-built-a-local-ai-code-reviewer-that-never-sends-your-code-to-the-cloud-5ejm)
 
 ---
 
@@ -310,6 +311,13 @@ Good first issues:
 - Add a `diff` mode to review only changed lines (git diff integration)
 - Add a VS Code extension wrapper
 - Improve prompt templates for specific languages
+
+---
+
+## 📚 Blog Post & Challenge Submission
+
+Read the full deep-dive article detailing the architecture, prompt engineering, and offline AI philosophy on DEV:
+👉 **[I Built a Local AI Code Reviewer That Never Sends Your Code to the Cloud 🧙](https://dev.to/himank_kaushik_0753a0366e/i-built-a-local-ai-code-reviewer-that-never-sends-your-code-to-the-cloud-5ejm)**
 
 ---
 
