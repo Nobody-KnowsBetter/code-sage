@@ -257,6 +257,26 @@ pytest --cov=codesage --cov-report=term-missing
 
 # Run a specific test file
 pytest tests/test_reviewer.py -v
+---
+
+## ❓ Troubleshooting & FAQ
+
+#### 1. `Cannot connect to Ollama at http://localhost:11434`
+Ensure the Ollama service is active. Start it in a background or separate terminal:
+```bash
+ollama serve
+```
+
+#### 2. `Model 'gemma3' not found`
+Download the model weights locally before running reviews:
+```bash
+ollama pull gemma3
+```
+
+#### 3. macOS: Python 3.14 `.pth` loading flag
+If running Python 3.14 on macOS and encountering an import issue after editable install, clear the filesystem flags:
+```bash
+chflags 0 .venv/lib/python*/site-packages/*.pth
 ```
 
 ---
