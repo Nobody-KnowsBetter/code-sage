@@ -9,7 +9,7 @@ description = "Local AI Code Reviewer powered by Ollama open-weight models"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
-authors = [{ name = "CodeSage Contributors" }]
+authors = [{ name = "Himank Kaushik", email = "itshimankkaushik@gmail.com" }]
 keywords = ["ai", "code-review", "ollama", "cli", "open-source", "hacktoberfest"]
 classifiers = [
     "Development Status :: 4 - Beta",

@@ -291,11 +291,15 @@ Good first issues:
 | **Config** | [python-dotenv](https://pypi.org/project/python-dotenv/) | `.env` support |
 | **Testing** | [pytest](https://pytest.org) | Clean, expressive tests |
 
+## 👤 Author
+
+Developed by **Himank Kaushik** ([@Nobody-KnowsBetter](https://github.com/Nobody-KnowsBetter)) for Hacktoberfest 2026.
+
 ---
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE).
+MIT © 2026 Himank Kaushik — see [LICENSE](LICENSE).
 
 ---
 
