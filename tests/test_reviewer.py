@@ -9,8 +9,9 @@ from __future__ import annotations
 
 import tempfile
 from pathlib import Path
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import MagicMock, patch
 
+# pyrefly: ignore[missing-import]
 import pytest
 
 from codesage.reviewer import CodeReviewer, detect_language, read_file_safely
@@ -80,20 +81,31 @@ def test_read_file_safely_directory():
 
 @pytest.fixture()
 def mock_ollama(monkeypatch):
-    """Patch OllamaClient so no real HTTP calls are made."""
+    """Patch OllamaClient as an async context manager with a fake generate."""
     fake_response = "## 🎯 Summary\nThis code prints hello.\n\n## ⭐ Overall Score\n8/10"
+
+    # We need to patch __aenter__ / __aexit__ so `async with OllamaClient()` works,
+    # and also override generate() so no real HTTP request is made.
+    async def fake_aenter(self):
+        # Provide a dummy httpx client so _client is not None
+        import httpx
+        self._client = httpx.AsyncClient()
+        return self
+
+    async def fake_aexit(self, *args):
+        if self._client:
+            await self._client.aclose()
 
     async def fake_generate(self, prompt, system=""):
         return fake_response
 
-    monkeypatch.setattr(
-        "codesage.reviewer.OllamaClient.generate",
-        fake_generate,
-    )
-    monkeypatch.setattr(
-        "codesage.reviewer.OllamaClient._ensure_model_available",
-        AsyncMock(return_value=None),
-    )
+    async def fake_ensure(self):
+        pass  # Skip real model availability check
+
+    monkeypatch.setattr("codesage.reviewer.OllamaClient.__aenter__", fake_aenter)
+    monkeypatch.setattr("codesage.reviewer.OllamaClient.__aexit__", fake_aexit)
+    monkeypatch.setattr("codesage.reviewer.OllamaClient.generate", fake_generate)
+    monkeypatch.setattr("codesage.reviewer.OllamaClient._ensure_model_available", fake_ensure)
     return fake_response
 
 

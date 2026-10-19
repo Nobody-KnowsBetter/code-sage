@@ -31,7 +31,6 @@ from codesage.output import (
     print_header,
     print_model_table,
     print_review,
-    print_success,
 )
 from codesage.reviewer import CodeReviewer, detect_language
 
@@ -145,15 +144,22 @@ def review(
             print_review(result, filename=fname)
         else:
             # Stream tokens live into the terminal
+            # Use a list (mutable) so the nested callback can safely append
             buffer: list[str] = []
-            with Live(Text(""), refresh_per_second=15, console=console) as live:
-                def on_token(token: str) -> None:
-                    buffer.append(token)
+
+            def on_token(token: str) -> None:
+                buffer.append(token)
+
+            with Live("", refresh_per_second=15, console=console) as live:
+                def _refresh_token(token: str) -> None:
+                    on_token(token)
                     live.update(Text("".join(buffer)))
 
-                result = reviewer.review_snippet(code, lang, focus=focus, stream_callback=on_token)
+                result = reviewer.review_snippet(
+                    code, lang, focus=focus, stream_callback=_refresh_token
+                )
 
-            # Re-render the final output as proper markdown
+            # Re-render the final output as proper Rich markdown
             console.clear()
             print_header(fname, effective_model, lang)
             print_review(result, filename=fname)

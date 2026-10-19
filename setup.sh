@@ -49,6 +49,7 @@ if [ -d "$VENV_DIR" ]; then
 else
     info "Creating virtual environment in $VENV_DIR..."
     "$PYTHON_CMD" -m venv "$VENV_DIR"
+    [[ "$OSTYPE" == "darwin"* ]] && chflags -R 0 "$VENV_DIR" 2>/dev/null || true
     success "Virtual environment created."
 fi
 
@@ -68,6 +69,7 @@ success "Dependencies installed."
 # ── 5. Install codesage in editable mode ─────────────────────────────────────
 info "Installing CodeSage CLI (editable)..."
 pip install --quiet -e .
+[[ "$OSTYPE" == "darwin"* ]] && chflags -R 0 "$VENV_DIR" 2>/dev/null || true
 success "CodeSage installed. Run: codesage --help"
 
 # ── 6. Create .env from .env.example ─────────────────────────────────────────

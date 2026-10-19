@@ -147,6 +147,7 @@ class OllamaClient:
             async with self._client.stream(  # type: ignore[union-attr]
                 "POST", "/api/generate", json=payload
             ) as resp:
+                # raise_for_status on streaming response checks headers only
                 resp.raise_for_status()
                 async for line in resp.aiter_lines():
                     if not line.strip():
@@ -160,6 +161,10 @@ class OllamaClient:
                         yield token
                     if chunk.get("done", False):
                         break
+        except httpx.HTTPStatusError as exc:
+            raise OllamaError(
+                f"Ollama API error {exc.response.status_code}: {exc.response.text[:200]}"
+            ) from exc
         except httpx.ConnectError as exc:
             raise OllamaError(
                 f"Cannot connect to Ollama at {self.base_url}. "
@@ -173,9 +178,17 @@ class OllamaClient:
 
         Returns:
             List of model name strings (e.g., ['gemma3', 'codellama']).
+
+        Raises:
+            OllamaError: If not used inside async context manager or Ollama unreachable.
         """
+        if self._client is None:
+            raise OllamaError(
+                "OllamaClient must be used as an async context manager: "
+                "async with OllamaClient() as client: ..."
+            )
         try:
-            resp = await self._client.get("/api/tags")  # type: ignore[union-attr]
+            resp = await self._client.get("/api/tags")
             resp.raise_for_status()
             return [m["name"] for m in resp.json().get("models", [])]
         except httpx.RequestError as exc:
