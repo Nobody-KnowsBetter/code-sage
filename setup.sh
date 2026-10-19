@@ -69,7 +69,10 @@ success "Dependencies installed."
 # ── 5. Install codesage in editable mode ─────────────────────────────────────
 info "Installing CodeSage CLI (editable)..."
 pip install --quiet -e .
-[[ "$OSTYPE" == "darwin"* ]] && chflags -R 0 "$VENV_DIR" 2>/dev/null || true
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        chflags -R 0 "$VENV_DIR" 2>/dev/null || true
+        chflags 0 "$VENV_DIR"/lib/python*/site-packages/*.pth 2>/dev/null || true
+    fi
 success "CodeSage installed. Run: codesage --help"
 
 # ── 6. Create .env from .env.example ─────────────────────────────────────────
