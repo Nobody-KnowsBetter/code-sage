@@ -74,6 +74,20 @@ code-sage/
 
 ---
 
+## 🤖 Supported Models & Hardware Guidelines
+
+CodeSage is model-agnostic and works with any model served by Ollama. Choose the model matching your hardware:
+
+| Model | Command to Pull | RAM / VRAM | Best For |
+|---|---|---|---|
+| **Gemma 3 (Default)** | `ollama pull gemma3` | 4 GB - 8 GB | Fast, balanced code reviews and security checks |
+| **Qwen 2.5 Coder (7B)** | `ollama pull qwen2.5-coder` | 8 GB - 16 GB | High-accuracy refactoring and complex logic |
+| **DeepSeek-Coder (6.7B)** | `ollama pull deepseek-coder` | 8 GB | Excellent bug detection across Python, JS, and Go |
+| **CodeLlama (7B)** | `ollama pull codellama` | 8 GB | Meta's code-specialized model |
+| **Phi-4 (14B)** | `ollama pull phi4` | 16 GB+ | High-end reasoning and architectural feedback |
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
