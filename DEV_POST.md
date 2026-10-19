@@ -11,7 +11,7 @@ canonical_url: null
 
 **tl;dr** — I built **CodeSage**: a CLI tool that reviews your code using open-weight AI models running 100% locally via Ollama. No API keys. No data sent to any server. Completely private. And it's exactly the kind of thing freelance developers would pay for.
 
-**GitHub Repository:** [https://github.com/himankk/code-sage](https://github.com/himankk/code-sage)
+**GitHub Repository:** [https://github.com/Nobody-KnowsBetter/code-sage](https://github.com/Nobody-KnowsBetter/code-sage)
 
 ---
 
@@ -228,7 +228,7 @@ ollama pull codellama
 ### Step 3: Install CodeSage
 
 ```bash
-git clone https://github.com/himankk/code-sage.git
+git clone https://github.com/Nobody-KnowsBetter/code-sage.git
 cd code-sage
 bash setup.sh           # one-shot: creates venv, installs deps, configures .env
 source .venv/bin/activate
@@ -326,7 +326,7 @@ pytest --cov=codesage
 
 ## Resources
 
-- **GitHub:** [https://github.com/himankk/code-sage](https://github.com/himankk/code-sage)
+- **GitHub:** [https://github.com/Nobody-KnowsBetter/code-sage](https://github.com/Nobody-KnowsBetter/code-sage)
 - **Ollama:** [https://ollama.com](https://ollama.com)
 - **Gemma 3 Model Card:** [https://ollama.com/library/gemma3](https://ollama.com/library/gemma3)
 - **Hacktoberfest:** [https://hacktoberfest.com](https://hacktoberfest.com)

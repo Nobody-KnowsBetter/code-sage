@@ -90,7 +90,7 @@ code-sage/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/himankk/code-sage.git
+git clone https://github.com/Nobody-KnowsBetter/code-sage.git
 cd code-sage
 
 # 2. Run the setup script (creates venv, installs deps, pulls gemma3)
@@ -112,7 +112,7 @@ codesage review codesage/reviewer.py
 
 ```bash
 # 1. Clone and enter the project
-git clone https://github.com/himankk/code-sage.git
+git clone https://github.com/Nobody-KnowsBetter/code-sage.git
 cd code-sage
 
 # 2. Create and activate a virtual environment
